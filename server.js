@@ -8,3 +8,11 @@ const PORT = process.env.PORT;
 // Middleware 
 app.use(express.json());
 
+app.use('/', (req, res) => {
+    res.send("Hello from the server!");
+});
+
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
+
