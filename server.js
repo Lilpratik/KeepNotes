@@ -1,6 +1,8 @@
 const express = require('express');
 const connectDB = require('./db/db.config');
 
+const userRoutes = require('./routes/user.route');
+
 require('dotenv').config();
 
 const app = express();
@@ -12,9 +14,14 @@ app.use(express.json());
 // connect to database
 connectDB();
 
-app.use('/', (req, res) => {
-    res.send("Hello from the server!");
-})
+// test endpont 
+app.get('/', () => {
+    console.log("API is working...!");
+});
+
+
+app.use('/api/v1', userRoutes);
+
 
 
 app.listen(PORT, () => {
