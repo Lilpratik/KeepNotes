@@ -22,7 +22,7 @@ app.get('/', () => {
 
 app.use('/api/v1', userRoutes);
 
-app.use('/api/v1', noteRoutes);
+app.use('/api/notes', noteRoutes);
 
 
 
