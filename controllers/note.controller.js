@@ -34,7 +34,7 @@ const createNote = async(req, res) => {
 const getNotes = async(req, res) => {
     try {
         const notes = await Note.find({
-            userId: req.user_id
+            userId: req.user._id
         }).sort({
             isPinned: -1,
             updatedAt: -1,
