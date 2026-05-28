@@ -3,20 +3,22 @@ const connectDB = require('./db/db.config');
 
 const userRoutes = require('./routes/user.route');
 const noteRoutes = require('./routes/note.route');
+const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT;
 
 // Middleware 
+app.use(cors());
 app.use(express.json());
 
 // connect to database
 connectDB();
 
 // test endpont 
-app.get('/', () => {
-    console.log("API is working...!");
+app.get('/', (req, res) => {
+    res.send("API is working...!");
 });
 
 
